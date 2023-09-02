@@ -1,9 +1,9 @@
 public class stack {
-    // Atributos privados
+    // Private attributes
     private static final int TAM_DEFAULT = 100;
     private	int topoStack;
     private	char e[ ];
-    // Métodos públicos
+    // Public methods
     public	stack(int tamanho) {  // construtor 1
         this.e = new char [tamanho];
         this.topoStack = -1;
@@ -14,67 +14,49 @@ public class stack {
     }
 
 
-    //Verifica se a Stack
-    //está vazia
+    //Check if the stack is empty
     public boolean isEmpty() {
         if (this.topoStack == -1)
             return true;
         else
             return false;
     }
-    // Verifica se a Stack está
-    // cheia
+    // Check if the stack is full
     public boolean isFull() {
         if (this.topoStack == this.e.length-1)
             return true;
         else
             return false;
     }
-    // insere um elemento e 
-    // no topo da Stack
+    // Insert an element on top of the stack
     public void push(char e) {
         if (! this.isFull( ))
             this.e[++this.topoStack] = e;
         else
-            System.out.println("overflow - Estouro de Stack");
+            System.out.println("overflow - Stack's full");
     }
-    //remove um elemento 
-    //do topo da Stack
+    //Removes an element from the top of the stack
     public char pop() {
         if (! this.isEmpty( ))
             return this.e[this.topoStack--];
         else{
-            System.out.println( "underflow - Esvaziamento de Stack");
+            System.out.println( "underflow - Stack's empty");
             return '\0';
         }
     }
-    //Retorna o elemento que está
-    //no topo da Stack
+    //Returns the element from the top of the stack
     public char topo() {
         if ( ! this.isEmpty( ))
             return this.e[this.topoStack];
         else{
-            System.out.println("Underlow - Esvaziamento de Stack");
+            System.out.println("Underlow - Stack's empty");
             return '\0';
         }
     }
-    // obtém o total de elementos 
-    //armazenados na Stack
+    // Obtain the total of elements stored int the stack
     public int sizeElements() {
         return topoStack+1;
     }
-
-
-
-    // Sobrescrita/sobreposição (override) do método toString(), que veio da superclasse Object.
-    // O retorno do método toString() é a representação de um objeto em formato string, e toString()
-    // geralmente é executado (de forma implícita) quando passamos um objeto ao System.out.print*().
-    //
-    // Experimente incluir o seguinte código na main() e veja a saída:
-    // Stack p = new Stack();
-    // System.out.println(f);
-    //
-    // Depois, remova/comente o método toString() abaixo e rode o código acima novamente.
 
 }
 
